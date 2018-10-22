@@ -46,7 +46,6 @@ function combineAndSort(wordArray, numberArray) {
       wordArray.splice(index, 1);
       numberArray.splice(index, 1);
     } else {
-      debugger;
       wordArray.pop();
       numberArray.pop();
     }
@@ -60,25 +59,28 @@ function combineAndSort(wordArray, numberArray) {
 
 $(function() {
 
-      $("#form").submit(function(event) {
-          event.preventDefault();
-          sortedArray = [];
+  $("#results").hide();
 
-          var inputString = $("#bulk-input").val();
-          var inputArray = inputString.split(" ");
+  $("#form").submit(function(event) {
+    event.preventDefault();
+    sortedArray = [];
 
-          checkWord(inputArray);
-          combineAndSort(uniqueArray, countArray)
+    var inputString = $("#bulk-input").val();
+    var inputArray = inputString.split(" ");
 
-          console.log(uniqueArray);
-          console.log(countArray);
-          console.log(sortedArray)
+    checkWord(inputArray);
+    combineAndSort(uniqueArray, countArray)
 
-          sortedArray.forEach(function(each) {
+    console.log(uniqueArray);
+    console.log(countArray);
+    console.log(sortedArray)
 
-              $("#ordered-words").append("<li>" + each[0] + "</li>")
-            });
-          });
+    sortedArray.forEach(function(each) {
+    $("#results").show();
+
+      $("#ordered-words").append("<li>" + each[0] + "(" + each[1] + ")" + "</li>")
+    });
+  });
 
 
-      });
+});
