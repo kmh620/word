@@ -18,17 +18,18 @@ function checkWord(list) {
   for (var i = 0; i < list.length; i++) {
     var number = countWord(list, list[i]);
 
-    if (uniqueArray.indexOf(list[i]) != -1) {
-        // pass
-      } else {
-        uniqueArray.push(list[i]);
-        console.log("uniqueArray= ", uniqueArray);
-        countArray.push(number);
-        console.log("countArray = " + countArray);
-      }
+    if (uniqueArray.indexOf(list[i]) == -1) {
+      uniqueArray.push(list[i]);
+      console.log("uniqueArray= ", uniqueArray);
+      countArray.push(number);
+      console.log("countArray = " + countArray);
+    }
   }
   return true;
 };
+
+
+
 
 $(function() {
 
