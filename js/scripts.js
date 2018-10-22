@@ -60,21 +60,25 @@ function combineAndSort(wordArray, numberArray) {
 
 $(function() {
 
-  $("#form").submit(function(event) {
-    event.preventDefault();
-    sortedArray = [];
+      $("#form").submit(function(event) {
+          event.preventDefault();
+          sortedArray = [];
 
-    var inputString = $("#bulk-input").val();
-    var inputArray = inputString.split(" ");
+          var inputString = $("#bulk-input").val();
+          var inputArray = inputString.split(" ");
 
-    checkWord(inputArray);
-    combineAndSort(uniqueArray, countArray)
+          checkWord(inputArray);
+          combineAndSort(uniqueArray, countArray)
 
-    console.log(uniqueArray);
-    console.log(countArray);
-    console.log(sortedArray)
+          console.log(uniqueArray);
+          console.log(countArray);
+          console.log(sortedArray)
 
-  });
+          sortedArray.forEach(function(each) {
+
+              $("#ordered-words").append("<li>" + each[0] + "</li>")
+            });
+          });
 
 
-});
+      });
